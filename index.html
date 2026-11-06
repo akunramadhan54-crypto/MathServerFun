@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Math is Fun</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f7ff;--gr:#cfe0ff;--card:#fff;--soft:#e6efff;--ink:#1d2447;--mute:#56608a;--b:#3b6cff;--k:#ff4f88;--g:#13a67d;--o:#ee6c1a;--y:#ffe14d;--sh:#1d2447;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121830;--gr:#232d57;--card:#1b2244;--soft:#262f5e;--ink:#eef1ff;--mute:#a9b2dd;--b:#7f9dff;--k:#ff7aa8;--g:#2fd3a6;--o:#ffa463;--sh:#05081a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121830;--gr:#232d57;--card:#1b2244;--soft:#262f5e;--ink:#eef1ff;--mute:#a9b2dd;--b:#7f9dff;--k:#ff7aa8;--g:#2fd3a6;--o:#ffa463;--sh:#05081a;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;padding-bottom:90px;background-color:var(--bg);background-image:linear-gradient(var(--gr) 1px,transparent 1px),linear-gradient(90deg,var(--gr) 1px,transparent 1px);background-size:28px 28px;color:var(--ink);font:400 1.05rem/1.65 "Fredoka","Trebuchet MS",system-ui,sans-serif}
+:focus-visible{outline:3px solid var(--b);outline-offset:2px}
+.hero{position:relative;max-width:860px;margin:auto;padding:56px 20px 28px}
+h1{margin:0;font-size:clamp(3rem,12vw,6rem);line-height:1;font-weight:700;text-shadow:4px 4px 0 var(--sh)}
+h1 i{font-style:normal}
+.lead{max-width:34em;margin:18px 0 0;font-size:1.15rem;color:var(--mute)}
+.sy{position:absolute;font-weight:700;font-size:4.5rem;opacity:.16;pointer-events:none}
+.tg{position:absolute;top:14px;right:18px;width:42px;height:42px;border:2.5px solid var(--ink);border-radius:50%;background:var(--card);color:var(--ink);font-size:1.2rem;cursor:pointer}
+nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+nav a{padding:6px 16px;border:2.5px solid var(--ink);border-radius:999px;background:var(--card);color:var(--ink);font-weight:600;text-decoration:none;box-shadow:3px 3px 0 var(--sh)}
+main{max-width:860px;margin:auto;padding:0 20px}
+.card{margin:34px 0;padding:22px 22px 24px;border:3px solid var(--ink);border-left:12px solid var(--c);border-radius:14px;background:var(--card);box-shadow:6px 6px 0 var(--sh)}
+h2{margin:0 0 12px;font-size:1.9rem;line-height:1.2}
+.two{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;align-items:center}
+@media (max-width:640px){.two{grid-template-columns:1fr}}
+p{margin:0 0 10px}
+.sld{display:block;margin:12px 0 4px;font-weight:600}
+.sld b{display:inline-block;min-width:1.6em;padding:0 6px;border-radius:6px;background:var(--y);color:#1d2447;text-align:center}
+input[type=range]{display:block;width:100%;accent-color:var(--c)}
+.tip{color:var(--mute);font-size:.95rem}
+.out{margin-top:12px;padding:10px 14px;border-radius:10px;background:var(--soft);font-weight:600}
+.out small{display:block;margin-top:2px;color:var(--mute);font-weight:400;font-size:.95rem}
+.fr{display:inline-grid;margin-right:6px;vertical-align:middle;text-align:center;font-size:1.35em;font-weight:700}
+.fr i{padding:0 8px;font-style:normal}.fr i:first-child{border-bottom:3px solid currentColor}
+svg.vis{display:block;width:100%;max-width:300px;margin:auto}
+.tx{fill:var(--ink);font:600 14px "Fredoka",system-ui,sans-serif;text-anchor:middle}.sm{font-size:11px}
+.sl{fill:var(--soft);stroke:var(--ink);stroke-width:2.5;cursor:pointer}.sl.on{fill:var(--k)}
+.cb{fill:var(--b)}.ck{fill:var(--k)}.cg{fill:var(--g)}.co{fill:var(--o)}.cy{fill:var(--y)}
+.rc{fill:var(--g);fill-opacity:.3}.gl{stroke:var(--ink);stroke-opacity:.35}.ol{fill:none;stroke:var(--o);stroke-width:4;stroke-dasharray:9 5}
+.bar{fill:var(--o)}.la{fill:var(--k)}
+.quiz{margin-top:22px;padding:14px 16px;border:2.5px dashed var(--ink);border-radius:12px;background:color-mix(in srgb,var(--y) 22%,var(--card))}
+.quiz h3{margin:0 0 6px;font-size:1.15rem}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+input[type=number]{width:7.5em;padding:8px 12px;border:2.5px solid var(--ink);border-radius:10px;background:var(--card);color:var(--ink);font:inherit}
+button.go,button.nx{padding:8px 18px;border:2.5px solid var(--ink);border-radius:10px;font:inherit;font-weight:600;cursor:pointer;color:#1d2447;background:var(--y);box-shadow:3px 3px 0 var(--sh)}
+button.nx{background:var(--card);color:var(--ink)}
+.fb{min-height:1.6em;margin:10px 0 0;font-weight:600}.ok{color:var(--g)}.no{color:var(--k)}
+#pill{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));padding:6px 16px;border:2.5px solid var(--ink);border-radius:999px;background:var(--y);color:#1d2447;font-weight:700;box-shadow:3px 3px 0 var(--sh)}
+footer{max-width:860px;margin:auto;padding:0 20px 20px;color:var(--mute)}
+.grp{display:inline-block;margin:36px 0 0;padding:6px 18px;border:3px solid var(--ink);border-radius:999px;background:var(--y);color:#1d2447;font-size:1.3rem;box-shadow:4px 4px 0 var(--sh)}
+.ax{stroke:var(--ink);stroke-width:2}.pl{fill:none;stroke:var(--k);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}.ly{fill:var(--card);stroke:var(--ink);stroke-width:3}.sq{fill-opacity:.4;stroke:var(--ink);stroke-width:2}
+nav a[aria-current=page]{background:var(--y);color:#1d2447}
+</style>
+</head>
+<body>
+<header class="hero">
+<button class="tg" id="th" aria-label="Ganti tema terang atau gelap">◐</button>
+<span class="sy" style="right:12%;top:14%" aria-hidden="true">÷</span>
+<span class="sy" style="right:4%;top:46%" aria-hidden="true">π</span>
+<span class="sy" style="right:24%;top:60%" aria-hidden="true">+</span>
+<h1>Math is Fun</h1>
+<p class="lead">Konsep matematika dijelaskan dengan bahasa sederhana, gambar yang bisa kamu mainkan, dan kuis singkat di setiap bab untuk SMP kelas 7-9 dan SMA kelas 10-12. Selesaikan soal untuk mengumpulkan bintang.</p>
+<nav>
+<a href="#kelas7">🎒 SMP 7</a><a href="#kelas8">🎒 SMP 8</a><a href="#kelas9">🎒 SMP 9</a><a href="#kelas10">🎓 SMA 10</a><a href="#kelas11">🎓 SMA 11</a><a href="#kelas12">🎓 SMA 12</a>
+</nav>
+</header>
+<main>
+<div id="smp"></div>
+</main>
+<footer>Math is Fun: pelan-pelan saja, yang penting paham.</footer>
+<div id="pill" aria-live="polite">⭐ <span id="sc">0</span></div>
+<script>
+const $=(s,r=document)=>r.querySelector(s),R=(a,b)=>Math.floor(Math.random()*(b-a+1))+a,NS='http://www.w3.org/2000/svg';
+let stars=0;
+const H1=$('h1');H1.setAttribute('aria-label','Math is Fun');
+H1.innerHTML=[...'Math is Fun'].map((c,i)=>c==' '?' ':`<i aria-hidden="true" style="color:var(--${'bkgo'[i%4]})">${c}</i>`).join('');
+$('#th').onclick=()=>{const d=document.documentElement,dark=d.dataset.theme?d.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;d.dataset.theme=dark?'light':'dark'};
+const rg=(id,f)=>{const e=$('#'+id),u=()=>{$('#'+id+'v').textContent=e.value;f()};e.oninput=u;u()};
+
+const G={};
+const SMP=[
+{k:7,id:'bulat',c:'b',e:'➕',t:'Bilangan bulat',tx:'<p><b>Bilangan bulat</b> mencakup bilangan positif, nol, dan negatif. Pada garis bilangan, menambah berarti bergeser ke kanan, dan mengurangi berarti bergeser ke kiri.</p>',vb:'0 0 300 100',sl:[['Angka awal',-10,10,-3],['Digeser sebesar',-10,10,5]],
+f:(a,b)=>{const x=v=>150+v*7,r=a+b;let s='<line x1="10" x2="290" y1="60" y2="60" class="ax"/>';for(let v=-20;v<=20;v+=5)s+=`<line x1="${x(v)}" x2="${x(v)}" y1="55" y2="65" class="ax"/><text x="${x(v)}" y="82" class="tx sm">${v}</text>`;
+s+=`<line x1="${x(a)}" x2="${x(r)}" y1="40" y2="40" class="pl"/><circle cx="${x(a)}" cy="60" r="6" class="cb"/><circle cx="${x(r)}" cy="60" r="6" class="ck"/><text x="${x(a)}" y="30" class="tx">${a}</text><text x="${x(r)}" y="30" class="tx">${r}</text>`;
+return[s,`${a} ${b<0?'−':'+'} ${Math.abs(b)} = <b>${r}</b><small>Mulai dari ${a} (biru), geser ${Math.abs(b)} langkah ke ${b<0?'kiri':'kanan'}, sampai ${r} (merah muda).</small>`]},
+q:()=>{if(R(0,1)){const a=R(-9,-1),b=R(2,12);return{t:`Suhu di puncak gunung ${a} °C, lalu naik ${b} °C. Berapa suhunya sekarang (°C)?`,a:a+b,h:`Hitung ${a} + ${b}: mulai dari ${a}, geser ${b} langkah ke kanan.`}}const a=R(1,9),b=R(a+1,15);return{t:`Suhu di sebuah kota ${a} °C, lalu turun ${b} °C. Berapa suhunya sekarang (°C)?`,a:a-b,h:`Hitung ${a} − ${b}: mulai dari ${a}, geser ${b} langkah ke kiri.`}}},
+{k:7,id:'plsv',c:'k',e:'⚖️',t:'Persamaan linear satu variabel',tx:'<p>Persamaan seperti <b>a·x + b = c</b> ibarat neraca yang seimbang: apa pun yang kita lakukan di satu sisi, harus kita lakukan juga di sisi lain. Caranya: kurangi b di kedua sisi, lalu bagi dengan a.</p><p class="tip">Batang biru = a kotak berisi x, oranye = b, hijau = c. Panjang kedua batang sama.</p>',vb:'0 0 300 120',sl:[['Koefisien a',2,9,3],['Konstanta b',1,15,4],['Nilai x',1,10,5]],
+f:(a,b,x)=>{const c=a*x+b,u=280/c;let s='';for(let i=0;i<a;i++)s+=`<rect x="${10+i*x*u}" y="15" width="${x*u}" height="34" class="cb sq"/><text x="${10+(i+.5)*x*u}" y="37" class="tx">x</text>`;
+s+=`<rect x="${10+a*x*u}" y="15" width="${b*u}" height="34" class="co sq"/><text x="${10+(a*x+b/2)*u}" y="37" class="tx sm">${b}</text><rect x="10" y="65" width="280" height="34" class="cg sq"/><text x="150" y="87" class="tx">${c}</text>`;
+return[s,`${a}x + ${b} = ${c}<small>${a}x = ${c} − ${b} = ${c-b}, maka x = ${c-b} ÷ ${a} = <b>${x}</b></small>`]},
+q:()=>{const a=R(2,9),x=R(1,12),b=R(1,20);return{t:`Tentukan nilai x jika ${a}x + ${b} = ${a*x+b}.`,a:x,h:`Kurangi ${b} di kedua sisi: ${a}x = ${a*x}. Lalu bagi dengan ${a}.`}}},
+{k:8,id:'pyth',c:'g',e:'📏',t:'Teorema Pythagoras',tx:'<p>Pada segitiga siku-siku, <b>kuadrat sisi miring sama dengan jumlah kuadrat kedua sisi siku-sikunya</b>: c² = a² + b². Artinya, luas persegi di sisi miring (oranye) sama dengan jumlah luas dua persegi lainnya.</p>',vb:'0 0 300 300',sl:[['Sisi alas a',3,12,3],['Sisi tegak b',3,12,4]],
+f:(a,b)=>{const s=Math.min(280/(a+2*b),280/(b+2*a)),X=b*s+10,Y=(a+b)*s+10,Q=[X+a*s,Y],S=[X,Y-b*s],n=[b*s,-a*s],c2=a*a+b*b,c=Math.sqrt(c2);
+const h=`<rect x="${X}" y="${Y}" width="${a*s}" height="${a*s}" class="cb sq"/><rect x="${X-b*s}" y="${Y-b*s}" width="${b*s}" height="${b*s}" class="cg sq"/><polygon points="${Q} ${S} ${S[0]+n[0]},${S[1]+n[1]} ${Q[0]+n[0]},${Q[1]+n[1]}" class="co sq"/><polygon points="${X},${Y} ${Q} ${S}" class="ly"/><text x="${X+a*s/2}" y="${Y+a*s/2+5}" class="tx">${a*a}</text><text x="${X-b*s/2}" y="${Y-b*s/2+5}" class="tx">${b*b}</text><text x="${(Q[0]+S[0]+n[0])/2}" y="${(Q[1]+S[1]+n[1])/2+5}" class="tx">${c2}</text>`;
+return[h,`${a}² + ${b}² = ${a*a} + ${b*b} = ${c2}<small>c = √${c2} ${Number.isInteger(c)?'= <b>'+c+'</b> (tripel Pythagoras)':'≈ <b>'+c.toFixed(2)+'</b>'}</small>`]},
+q:()=>{const[p,q,r]=[[3,4,5],[5,12,13],[8,15,17],[6,8,10],[9,12,15],[7,24,25]][R(0,5)];return R(0,1)?{t:`Sisi siku-siku sebuah segitiga siku-siku panjangnya ${p} cm dan ${q} cm. Berapa panjang sisi miringnya (cm)?`,a:r,h:`c² = ${p}² + ${q}² = ${p*p+q*q}. Cari akar kuadratnya.`}:{t:`Sisi miring segitiga siku-siku ${r} cm dan salah satu sisi siku-sikunya ${p} cm. Berapa panjang sisi siku-siku yang lain (cm)?`,a:q,h:`b² = ${r}² − ${p}² = ${r*r-p*p}. Cari akar kuadratnya.`}}},
+{k:8,id:'linear',c:'o',e:'📈',t:'Garis lurus dan gradien',tx:'<p>Garis lurus pada bidang koordinat ditulis <b>y = m·x + c</b>. <b>Gradien m</b> menyatakan kemiringan: setiap maju 1 langkah ke kanan, garis naik sebanyak m (turun jika m negatif). Nilai <b>c</b> adalah titik tempat garis memotong sumbu y.</p>',vb:'0 0 300 300',sl:[['Gradien m',-3,3,1],['Titik potong sumbu y (c)',-5,5,2]],
+f:(m,c)=>{const X=v=>150+v*22,Y=v=>150-v*22;let s='';for(let v=-6;v<=6;v++)s+=`<line x1="${X(v)}" x2="${X(v)}" y1="18" y2="282" class="gl"/><line y1="${Y(v)}" y2="${Y(v)}" x1="18" x2="282" class="gl"/>`;
+s+=`<line x1="18" x2="282" y1="150" y2="150" class="ax"/><line x1="150" x2="150" y1="18" y2="282" class="ax"/><line x1="${X(-7)}" y1="${Y(-7*m+c)}" x2="${X(7)}" y2="${Y(7*m+c)}" class="pl"/><circle cx="${X(0)}" cy="${Y(c)}" r="6" class="cb"/><circle cx="${X(1)}" cy="${Y(m+c)}" r="6" class="co"/>`;
+return[s,`y = ${m}x ${c<0?'−':'+'} ${Math.abs(c)}<small>Titik biru (0, ${c}). Maju 1 ke kanan, sampai titik oranye (1, ${m+c}).</small>`]},
+q:()=>{const m=R(-4,5),c=R(-9,9),k=R(1,6);return{t:`Sebuah garis memiliki persamaan y = ${m}x ${c<0?'−':'+'} ${Math.abs(c)}. Berapa nilai y jika x = ${k}?`,a:m*k+c,h:`Ganti x dengan ${k}: y = ${m} × ${k} ${c<0?'−':'+'} ${Math.abs(c)}.`}}},
+{k:9,id:'kuadrat',c:'b',e:'🌈',t:'Persamaan kuadrat',tx:'<p><b>Persamaan kuadrat</b> berbentuk ax² + bx + c = 0. Jika bisa difaktorkan menjadi (x − p)(x − q) = 0, maka akar-akarnya x = p dan x = q. Pada grafik, akar adalah titik tempat parabola memotong sumbu x.</p>',vb:'0 0 300 220',sl:[['Akar pertama p',-6,6,-2],['Akar kedua q',-6,6,3]],
+f:(p,q)=>{const X=v=>150+v*20,Y=v=>60-v*4;let pt='';for(let x=-7.5;x<=7.5;x+=.25)pt+=`${X(x)},${Y((x-p)*(x-q))} `;
+const s=`<line x1="10" x2="290" y1="60" y2="60" class="ax"/><line x1="150" x2="150" y1="5" y2="215" class="ax"/><polyline points="${pt}" class="pl"/><circle cx="${X(p)}" cy="60" r="6" class="cb"/><circle cx="${X(q)}" cy="60" r="6" class="co"/><text x="${X(p)}" y="46" class="tx">${p}</text><text x="${X(q)}" y="${p==q?32:46}" class="tx">${q}</text>`;
+return[s,`(x ${p<0?'+':'−'} ${Math.abs(p)})(x ${q<0?'+':'−'} ${Math.abs(q)}) = 0<small>x² ${-(p+q)<0?'−':'+'} ${Math.abs(p+q)}x ${p*q<0?'−':'+'} ${Math.abs(p*q)} = 0, akar-akarnya x = ${p} dan x = ${q}</small>`]},
+q:()=>{const p=R(1,9),q=R(1,9);return{t:`Persamaan kuadrat x² − ${p+q}x + ${p*q} = 0 memiliki akar x = ${p} dan satu akar lain. Berapa akar yang lain?`,a:q,h:`Jumlah kedua akar adalah ${p+q}, jadi akar lainnya = ${p+q} − ${p}.`}}},
+{k:9,id:'tabung',c:'g',e:'🥫',t:'Tabung dan volume',tx:'<p><b>Tabung</b> adalah bangun ruang dengan alas dan tutup berbentuk lingkaran. Volumenya = luas alas × tinggi = <b>π × r² × t</b>. Di sini kita memakai π ≈ 3,14.</p>',vb:'0 0 300 230',sl:[['Jari-jari r',1,10,4],['Tinggi t',1,10,6]],
+f:(r,t)=>{const w=r*9,e=w*.35,h=t*13+10,y=45;
+const s=`<path d="M${150-w} ${y}v${h}a${w} ${e} 0 0 0 ${2*w} 0v-${h}" class="cb sq"/><ellipse cx="150" cy="${y}" rx="${w}" ry="${e}" class="cg sq"/><line x1="150" x2="${150+w}" y1="${y}" y2="${y}" class="pl"/><text x="${150+w/2}" y="${y-6}" class="tx sm">r = ${r}</text>`,f2=v=>v.toFixed(2).replace('.',',');
+return[s,`V = 3,14 × ${r}² × ${t} = <b>${f2(3.14*r*r*t)}</b> satuan kubik<small>Luas alas = 3,14 × ${r*r} = ${f2(3.14*r*r)}</small>`]},
+q:()=>{const t=R(2,10),r=[7,14][R(0,1)],k=R(0,1);return{t:`Sebuah tabung berjari-jari ${r} cm dan tinggi ${t} cm. Gunakan π = 22/7. Berapa ${k?'luas alas':'volume'} tabung itu (dalam ${k?'cm²':'cm³'})?`,a:k?22*r*r/7:22*r*r*t/7,h:`Luas alas = π × r² = 22/7 × ${r} × ${r}${k?'':`, lalu kalikan dengan tinggi ${t}`}.`}}},
+{k:10,id:'eksp',c:'b',e:'🚀',t:'Eksponen dan logaritma',tx:'<p><b>Eksponen</b> adalah perkalian berulang: 2⁴ = 2 × 2 × 2 × 2 = 16. <b>Logaritma</b> adalah kebalikannya: log₂ 16 = 4 berarti “2 dipangkatkan berapa agar hasilnya 16?”. Perhatikan betapa cepat batang tumbuh saat pangkatnya naik.</p>',vb:'0 0 300 170',sl:[['Bilangan pokok a',2,4,2],['Pangkat x',0,5,3]],
+f:(a,x)=>{const v=[0,1,2,3,4,5].map(i=>a**i),m=v[5];let s='';v.forEach((y,i)=>{const h=8+y/m*110,X=12+i*48;s+=`<rect x="${X}" y="${140-h}" width="38" height="${h}" rx="6" class="${i==x?'ck sq':'cb sq'}"/><text x="${X+19}" y="${134-h}" class="tx sm">${y}</text><text x="${X+19}" y="158" class="tx sm">${a}^${i}</text>`});
+return[s,`${a}<sup>${x}</sup> = <b>${a**x}</b><small>Sebaliknya: log<sub>${a}</sub> ${a**x} = <b>${x}</b> (batang merah muda)</small>`]},
+q:()=>{const a=R(2,5),x=R(2,4),v=a**x,w=R(0,2);return w==0?{t:`Hitung log ${a} dari ${v}. Artinya, ${a} dipangkatkan berapa agar hasilnya ${v}?`,a:x,h:`Cari x sehingga ${a}^x = ${v}. Coba ${a}¹, ${a}², ${a}³, dan seterusnya.`}:w==1?{t:`Berapa nilai ${a}^${x}?`,a:v,h:`Kalikan ${a} sebanyak ${x} kali: ${Array(x).fill(a).join(' × ')}.`}:{t:`Jika ${a}^x = ${v}, berapakah x?`,a:x,h:`Kalikan ${a} berulang sampai hasilnya ${v}, lalu hitung berapa kali kamu mengalikannya.`}}},
+{k:10,id:'trigo',c:'k',e:'🔺',t:'Trigonometri',tx:'<p><b>Trigonometri</b> membandingkan sisi-sisi segitiga siku-siku. Untuk sudut θ: <b>sin = depan ÷ miring</b>, <b>cos = samping ÷ miring</b>, <b>tan = depan ÷ samping</b>. Pada lingkaran satuan, titik di tepi lingkaran berkoordinat (cos θ, sin θ).</p>',vb:'0 0 300 300',sl:[['Sudut θ (derajat)',0,360,40]],
+f:t=>{const r=t*Math.PI/180,c=Math.cos(r),sn=Math.sin(r),X=150+110*c,Y=150-110*sn,z=v=>(Math.abs(v)<.005?0:v).toFixed(2).replace('.',',');
+const s=`<circle cx="150" cy="150" r="110" class="ly"/><line x1="20" x2="280" y1="150" y2="150" class="ax"/><line x1="150" x2="150" y1="20" y2="280" class="ax"/><line x1="150" y1="150" x2="${X}" y2="${Y}" class="pl"/><line x1="${X}" x2="${X}" y1="150" y2="${Y}" style="stroke:var(--b);stroke-width:4"/><line x1="150" x2="${X}" y1="150" y2="150" style="stroke:var(--g);stroke-width:4"/><circle cx="${X}" cy="${Y}" r="7" class="co"/>`;
+return[s,`sin ${t}° = <b>${z(sn)}</b> (garis biru)<small>cos ${t}° = <b>${z(c)}</b> (garis hijau) · tan ${t}° = ${Math.abs(c)<1e-9?'tak terdefinisi':z(sn/c)}</small>`]},
+q:()=>{const[p,q,r]=[[3,4,5],[5,12,13],[8,15,17],[6,8,10]][R(0,3)],m=R(2,5),w=R(0,2);
+if(w==0)return{t:`Pada segitiga siku-siku, sin θ = ${p}/${r} dan sisi miringnya ${r*m} cm. Berapa panjang sisi di depan sudut θ (cm)?`,a:p*m,h:`sin θ = depan ÷ miring, jadi depan = ${p}/${r} × ${r*m}.`};
+if(w==1)return{t:`Pada segitiga siku-siku, cos θ = ${q}/${r} dan sisi miringnya ${r*m} cm. Berapa panjang sisi di samping sudut θ (cm)?`,a:q*m,h:`cos θ = samping ÷ miring, jadi samping = ${q}/${r} × ${r*m}.`};
+return{t:`Pada segitiga siku-siku, tan θ = ${p}/${q} dan sisi di samping sudut θ ${q*m} cm. Berapa panjang sisi di depan sudut θ (cm)?`,a:p*m,h:`tan θ = depan ÷ samping, jadi depan = ${p}/${q} × ${q*m}.`}}},
+{k:11,id:'deret',c:'g',e:'🪜',t:'Barisan dan deret aritmetika',tx:'<p>Pada <b>barisan aritmetika</b>, selisih dua suku berurutan selalu sama (beda b). Suku ke-n: <b>U<sub>n</sub> = a + (n − 1)b</b>. Jumlah n suku pertama (<b>deret</b>): <b>S<sub>n</sub> = n × (2a + (n − 1)b) ÷ 2</b>.</p>',vb:'0 0 300 170',sl:[['Suku pertama a',1,10,2],['Beda b',1,6,3],['Banyak suku n',2,10,6]],
+f:(a,b,n)=>{const u=i=>a+i*b,m=u(n-1),w=280/n;let s='';for(let i=0;i<n;i++){const h=10+u(i)/m*100;s+=`<rect x="${10+i*w+2}" y="${130-h}" width="${w-4}" height="${h}" rx="4" class="cg sq"/><text x="${10+i*w+w/2}" y="${124-h}" class="tx sm">${u(i)}</text>`}
+return[s,`U${n} = ${a} + (${n} − 1) × ${b} = <b>${m}</b><small>S${n} = ${n} × (${a} + ${m}) ÷ 2 = <b>${n*(a+m)/2}</b></small>`]},
+q:()=>{const a=R(1,9),b=R(2,7),n=R(5,12),m=a+(n-1)*b;return R(0,1)?{t:`Barisan aritmetika memiliki suku pertama ${a} dan beda ${b}. Berapa suku ke-${n}?`,a:m,h:`U${n} = a + (n − 1)b = ${a} + ${n-1} × ${b}.`}:{t:`Barisan aritmetika memiliki suku pertama ${a} dan beda ${b}. Berapa jumlah ${n} suku pertamanya?`,a:n*(a+m)/2,h:`Cari U${n} = ${m} dulu, lalu S${n} = ${n} × (${a} + ${m}) ÷ 2.`}}},
+{k:11,id:'matriks',c:'o',e:'🔲',t:'Matriks dan determinan',tx:'<p><b>Matriks</b> adalah susunan bilangan dalam baris dan kolom. Untuk matriks 2 × 2 dengan baris atas (a, b) dan baris bawah (c, d), <b>determinannya = a×d − b×c</b>. Secara visual, nilai mutlak determinan adalah luas jajar genjang yang dibentuk vektor (a, c) merah muda dan (b, d) biru.</p>',vb:'0 0 300 300',sl:[['a (atas kiri)',-5,5,3],['b (atas kanan)',-5,5,1],['c (bawah kiri)',-5,5,1],['d (bawah kanan)',-5,5,2]],
+f:(a,b,c,d)=>{const X=v=>150+v*13,Y=v=>150-v*13,P=[[0,0],[a,c],[a+b,c+d],[b,d]].map(p=>X(p[0])+','+Y(p[1])).join(' '),D=a*d-b*c;
+return[`<line x1="10" x2="290" y1="150" y2="150" class="ax"/><line x1="150" x2="150" y1="10" y2="290" class="ax"/><polygon points="${P}" class="co sq"/><line x1="150" y1="150" x2="${X(a)}" y2="${Y(c)}" class="pl"/><line x1="150" y1="150" x2="${X(b)}" y2="${Y(d)}" style="stroke:var(--b);stroke-width:3.5"/>`,`det = ${a} × ${d} − ${b} × ${c} = <b>${D}</b><small>Luas jajar genjang (oranye) = |${D}| = ${Math.abs(D)}${D==0?'. Determinan nol berarti kedua vektor sejajar, bangunnya gepeng.':''}</small>`]},
+q:()=>{const a=R(-4,9),b=R(-4,9),c=R(-4,9),d=R(-4,9);return{t:`Matriks A memiliki baris atas (${a}, ${b}) dan baris bawah (${c}, ${d}). Berapa determinan A?`,a:a*d-b*c,h:`det = a × d − b × c = ${a} × ${d} − ${b} × ${c}. Hati-hati dengan tanda negatif.`}}},
+{k:12,id:'turunan',c:'k',e:'🎢',t:'Turunan dan garis singgung',tx:'<p><b>Turunan</b> menyatakan seberapa curam sebuah kurva di satu titik, yaitu gradien garis singgungnya. Untuk f(x) = a·x², turunannya <b>f′(x) = 2a·x</b>. Geser titik singgung dan lihat garis singgung (merah muda) mengikuti kurva.</p>',vb:'0 0 300 300',sl:[['Koefisien a',1,3,1],['Titik singgung x',-4,4,2]],
+f:(a,x)=>{const X=v=>150+v*28,Y=v=>270-v*5,y0=a*x*x,m=2*a*x;let pt='';for(let u=-5;u<=5;u+=.25)pt+=`${X(u)},${Y(a*u*u)} `;
+return[`<line x1="10" x2="290" y1="270" y2="270" class="ax"/><line x1="150" x2="150" y1="10" y2="290" class="ax"/><polyline points="${pt}" style="fill:none;stroke:var(--b);stroke-width:3.5"/><line x1="${X(-6)}" y1="${Y(y0+m*(-6-x))}" x2="${X(6)}" y2="${Y(y0+m*(6-x))}" class="pl"/><circle cx="${X(x)}" cy="${Y(y0)}" r="6" class="co"/>`,`f(x) = ${a}x², f′(x) = ${2*a}x<small>Di x = ${x}: gradien = ${2*a} × ${x} = <b>${m}</b>, titik singgung (${x}, ${y0})</small>`]},
+q:()=>{const a=R(1,5),b=R(-6,6),k=R(1,5),c=R(1,9);return{t:`Diketahui f(x) = ${a}x² ${b<0?'−':'+'} ${Math.abs(b)}x + ${c}. Berapa nilai f′(${k}), yaitu gradien garis singgung di x = ${k}?`,a:2*a*k+b,h:`f′(x) = ${2*a}x ${b<0?'−':'+'} ${Math.abs(b)}. Masukkan x = ${k}.`}}},
+{k:12,id:'integral',c:'b',e:'🧱',t:'Integral dan luas daerah',tx:'<p><b>Integral</b> menghitung luas daerah di bawah kurva. Kita bisa mendekatinya dengan banyak batang tipis (jumlah Riemann). Makin banyak batang, makin dekat ke luas sebenarnya: ∫ x² dx dari 0 sampai t = <b>t³ ÷ 3</b>.</p>',vb:'0 0 300 220',sl:[['Batas atas t',1,6,3],['Banyak batang n',2,30,5]],
+f:(t,n)=>{const w=270/n,X=v=>15+v/t*270,Y=v=>190-v/(t*t)*160;let s='',sum=0,pt='';for(let i=1;i<=n;i++){const x=i*t/n,h=x*x;sum+=h*t/n;s+=`<rect x="${X(x)-w}" y="${Y(h)}" width="${w}" height="${190-Y(h)}" class="cb sq" style="stroke-width:1"/>`}
+for(let u=0;u<=t+1e-9;u+=t/60)pt+=`${X(u)},${Y(u*u)} `;
+return[s+`<polyline points="${pt}" class="pl"/><line x1="10" x2="290" y1="190" y2="190" class="ax"/>`,`Jumlah ${n} batang ≈ ${sum.toFixed(2).replace('.',',')}<small>Luas sebenarnya = ${t}³ ÷ 3 = <b>${(t**3/3).toFixed(2).replace('.',',')}</b></small>`]},
+q:()=>{const t=R(2,6),m=R(1,4),b=R(1,6);return{t:`Hitung integral dari 0 sampai ${t} untuk (${2*m}x + ${b}) dx.`,a:m*t*t+b*t,h:`Integral ${2*m}x adalah ${m}x² dan integral ${b} adalah ${b}x. Masukkan batas atas ${t}; batas bawah 0 menghasilkan 0.`}}},
+{k:7,id:'persen',c:'g',e:'🏷️',t:'Persen dan perbandingan',tx:'<p><b>Persen</b> berarti “per seratus”. 25% sama dengan 25/100 atau 1/4. Mencari persen dari suatu jumlah: <b>jumlah × persen ÷ 100</b>. Geser slider dan lihat kotak yang diwarnai dari 20 kotak (tiap kotak = 5%).</p>',vb:'0 0 300 70',sl:[['Kotak berwarna',0,20,5]],
+f:n=>{let s='';for(let i=0;i<20;i++)s+=`<rect x="${10+(i%10)*28}" y="${8+Math.floor(i/10)*28}" width="26" height="26" rx="4" class="${i<n?'cg sq':'ly'}"/>`;return[s,`${n} dari 20 = ${n}/20 = <b>${n*5}%</b><small>Sama dengan ${n*5}/100 dari keseluruhan.</small>`]},
+q:()=>{const h=R(1,12)*400,p=[10,20,25,50][R(0,3)];return R(0,1)?{t:`Harga sebuah baju Rp${h}. Diskon ${p}%. Berapa rupiah potongan harganya?`,a:h*p/100,h:`Potongan = ${h} × ${p} ÷ 100.`}:{t:`Harga sebuah baju Rp${h}. Diskon ${p}%. Berapa rupiah yang harus dibayar?`,a:h-h*p/100,h:`Bayar = ${h} − potongan, dengan potongan = ${h} × ${p} ÷ 100.`}}},
+{k:7,id:'sudut',c:'o',e:'📐',t:'Sudut segitiga',tx:'<p>Jumlah ketiga sudut dalam sebuah segitiga selalu <b>180°</b>. Jika dua sudut diketahui, sudut ketiga = 180° − sudut pertama − sudut kedua.</p>',vb:'0 0 300 220',sl:[['Sudut A',20,80,50],['Sudut B',20,80,60]],
+f:(a,b)=>{const r=Math.PI/180,L=260*Math.sin(b*r)/Math.sin((a+b)*r),A=[20,200],B=[280,200],C=[A[0]+L*Math.cos(a*r),A[1]-L*Math.sin(a*r)],c=180-a-b;
+return[`<polygon points="${A} ${B} ${C}" class="co sq"/><text x="45" y="190" class="tx sm">${a}°</text><text x="250" y="190" class="tx sm">${b}°</text><text x="${C[0]}" y="${C[1]+24}" class="tx sm">${c}°</text>`,`${a}° + ${b}° + sudut C = 180°<small>Sudut C = 180° − ${a}° − ${b}° = <b>${c}°</b></small>`]},
+q:()=>{const a=R(30,80),b=R(30,80);return{t:`Dua sudut sebuah segitiga adalah ${a}° dan ${b}°. Berapa besar sudut ketiga (dalam derajat)?`,a:180-a-b,h:`Hitung 180 − ${a} − ${b}.`}}},
+{k:8,id:'spldv',c:'b',e:'✖️',t:'Sistem persamaan linear dua variabel',tx:'<p>Dua persamaan dengan dua variabel, misalnya <b>x + y = s</b> dan <b>x − y = d</b>, punya satu pasangan (x, y) yang cocok untuk keduanya. Pada grafik, itu titik potong dua garis. Cara cepat: jumlahkan kedua persamaan, maka 2x = s + d.</p>',vb:'0 0 300 300',sl:[['Nilai x',1,9,5],['Nilai y',1,9,3]],
+f:(x,y)=>{const s=x+y,d=x-y,X=v=>20+v*24,Y=v=>280-v*24;
+return[`<line x1="20" x2="290" y1="280" y2="280" class="ax"/><line x1="20" x2="20" y1="10" y2="280" class="ax"/><line x1="${X(0)}" y1="${Y(s)}" x2="${X(s)}" y2="${Y(0)}" class="pl"/><line x1="${X(d)}" y1="${Y(0)}" x2="${X(d+11)}" y2="${Y(11)}" style="stroke:var(--b);stroke-width:3.5"/><circle cx="${X(x)}" cy="${Y(y)}" r="7" class="co"/>`,`x + y = ${s} dan x − y = ${d}<small>Jumlahkan: 2x = ${s+d}, maka x = <b>${x}</b>. Lalu y = ${s} − ${x} = <b>${y}</b>.</small>`]},
+q:()=>{const x=R(2,9),y=R(1,8),s=x+y,d=x-y,w=R(0,1);return{t:`Diketahui x + y = ${s} dan x − y = ${d}. Berapa nilai ${w?'y':'x'}?`,a:w?y:x,h:w?`Cari x dulu: 2x = ${s} + ${d}. Lalu y = ${s} − x.`:`Jumlahkan kedua persamaan: 2x = ${s} + ${d}. Lalu bagi 2.`}}},
+{k:8,id:'peluang',c:'k',e:'🎲',t:'Peluang',tx:'<p><b>Peluang</b> suatu kejadian = banyak hasil yang diinginkan ÷ banyak semua hasil yang mungkin. Nilainya antara 0 (mustahil) dan 1 atau 100% (pasti). Bayangkan mengambil satu kelereng tanpa melihat.</p>',vb:'0 0 300 70',sl:[['Kelereng merah',1,10,3],['Kelereng biru',1,10,5]],
+f:(r,b)=>{let s='';for(let i=0;i<r+b;i++)s+=`<circle cx="${22+(i%10)*28}" cy="${20+Math.floor(i/10)*28}" r="11" class="${i<r?'ck':'cb'}"/>`;return[s,`P(merah) = ${r}/${r+b} = <b>${(r/(r+b)*100).toFixed(0)}%</b><small>Makin banyak kelereng merah, makin besar peluang terambil merah.</small>`]},
+q:()=>{const T=[4,5,10,20,25][R(0,4)],r=R(1,T-1);return{t:`Dalam sebuah kantong ada ${T} kelereng, ${r} di antaranya merah. Satu kelereng diambil tanpa melihat. Berapa persen peluang terambil kelereng merah?`,a:r*100/T,h:`Peluang = ${r}/${T}. Kalikan 100 untuk menjadi persen.`}}},
+{k:9,id:'sebangun',c:'g',e:'🔍',t:'Kesebangunan',tx:'<p>Dua bangun <b>sebangun</b> jika bentuknya sama tetapi ukurannya boleh berbeda. Semua sisi yang bersesuaian punya perbandingan sama, disebut <b>faktor skala k</b>. Luasnya berubah menjadi k × k kali.</p>',vb:'0 0 300 200',sl:[['Panjang kecil',2,5,3],['Lebar kecil',1,4,2],['Faktor skala k',1,3,2]],
+f:(a,b,k)=>{const u=Math.min(270/(a*(1+k)+1),170/(b*k)),w=a*u,h=b*u;return[`<rect x="10" y="${190-h}" width="${w}" height="${h}" class="cb sq"/><rect x="${20+w}" y="${190-h*k}" width="${w*k}" height="${h*k}" class="ck sq"/>`,`Kecil ${a} × ${b}, besar ${a*k} × ${b*k}<small>Luas kecil ${a*b}, luas besar ${a*b*k*k} (${k*k} kali lebih besar).</small>`]},
+q:()=>{const k=R(2,5),p=R(2,6),r=R(2,9);return{t:`Dua segitiga sebangun. Sisi ${p} cm pada segitiga kecil bersesuaian dengan sisi ${p*k} cm pada segitiga besar. Jika sisi lain segitiga kecil ${r} cm, berapa panjang sisi yang bersesuaian pada segitiga besar (cm)?`,a:r*k,h:`Faktor skala = ${p*k} ÷ ${p} = ${k}. Kalikan ${r} dengan ${k}.`}}},
+{k:10,id:'vektor',c:'o',e:'➡️',t:'Vektor',tx:'<p><b>Vektor</b> adalah besaran yang punya arah, digambar sebagai anak panah dan ditulis sebagai pasangan (x, y). Menjumlahkan vektor berarti menjumlahkan komponen yang bersesuaian: (a₁, a₂) + (b₁, b₂) = (a₁ + b₁, a₂ + b₂).</p>',vb:'0 0 300 300',sl:[['a₁',-5,5,3],['a₂',-5,5,2],['b₁',-5,5,1],['b₂',-5,5,-3]],
+f:(a1,a2,b1,b2)=>{const X=v=>150+v*13,Y=v=>150-v*13,ar=(x1,y1,x2,y2,st)=>`<line x1="${X(x1)}" y1="${Y(y1)}" x2="${X(x2)}" y2="${Y(y2)}" style="stroke:${st};stroke-width:3.5"/><circle cx="${X(x2)}" cy="${Y(y2)}" r="4.5" style="fill:${st}"/>`;
+return[`<line x1="10" x2="290" y1="150" y2="150" class="ax"/><line x1="150" x2="150" y1="10" y2="290" class="ax"/>`+ar(0,0,a1,a2,'var(--b)')+ar(a1,a2,a1+b1,a2+b2,'var(--g)')+ar(0,0,a1+b1,a2+b2,'var(--k)'),`a + b = (${a1+b1}, ${a2+b2})<small>a biru, b hijau (disambung di ujung a), hasil penjumlahan merah muda.</small>`]},
+q:()=>{const a=[R(-5,9),R(-5,9)],b=[R(-5,9),R(-5,9)],i=R(0,1);return{t:`Diketahui a = (${a[0]}, ${a[1]}) dan b = (${b[0]}, ${b[1]}). Berapa komponen ${i?'kedua (y)':'pertama (x)'} dari a + b?`,a:a[i]+b[i],h:`Jumlahkan komponen yang bersesuaian: ${a[i]} + ${b[i]}.`}}},
+{k:11,id:'kombinasi',c:'b',e:'🎟️',t:'Permutasi dan kombinasi',tx:'<p><b>Permutasi</b> menghitung cara memilih r dari n benda <i>dengan memperhatikan urutan</i>: n! ÷ (n − r)!. <b>Kombinasi</b> tidak memperhatikan urutan: n! ÷ (r! × (n − r)!). Karena itu kombinasi selalu lebih sedikit dari permutasi (atau sama).</p>',vb:'0 0 300 80',sl:[['Banyak benda n',3,8,5],['Dipilih r',1,5,2]],
+f:(n,r)=>{r=Math.min(r,n);const F=k=>k<2?1:k*F(k-1),P=F(n)/F(n-r),C=P/F(r);let s='';for(let i=0;i<n;i++)s+=`<circle cx="${22+i*34}" cy="40" r="14" class="${i<r?'ck':'cb'}"/>`;return[s,`P(${n}, ${r}) = <b>${P}</b> cara berurutan<small>C(${n}, ${r}) = ${P} ÷ ${r}! = <b>${C}</b> cara tanpa urutan. Lingkaran merah muda = yang dipilih (jika r lebih besar dari n, dipakai r = n).</small>`]},
+q:()=>{const n=R(4,9),r=R(2,3),F=k=>k<2?1:k*F(k-1);return R(0,1)?{t:`Dari ${n} siswa akan dipilih ${r} siswa sebagai pengurus tanpa membedakan jabatan. Ada berapa cara memilihnya?`,a:F(n)/F(n-r)/F(r),h:`Urutan tidak penting, jadi pakai kombinasi: ${n}! ÷ (${r}! × ${n-r}!).`}:{t:`Ada ${n} peserta lomba. Berapa cara menentukan juara 1 sampai juara ${r}?`,a:F(n)/F(n-r),h:`Urutan penting, jadi pakai permutasi: ${n}! ÷ ${n-r}!.`}}},
+{k:12,id:'limit',c:'g',e:'🎯',t:'Limit fungsi',tx:'<p><b>Limit</b> menggambarkan nilai yang didekati sebuah fungsi saat x mendekati suatu titik, walaupun di titik itu fungsinya mungkin tidak terdefinisi. Contoh: f(x) = (x² − a²) ÷ (x − a) = x + a untuk x ≠ a. Saat x mendekati a, nilainya mendekati <b>2a</b> (lingkaran kosong adalah titik yang “bolong”).</p>',vb:'0 0 300 290',sl:[['Nilai a',1,6,3],['Jarak x dari a (× 0,1)',1,20,10]],
+f:(a,s)=>{const h=s/10,X=v=>15+v*28,Y=v=>270-v*18,x=a+h,f1=v=>v.toFixed(1).replace('.',',');return[`<line x1="10" x2="290" y1="270" y2="270" class="ax"/><line x1="15" x2="15" y1="10" y2="270" class="ax"/><line x1="${X(0)}" y1="${Y(a)}" x2="${X(10)}" y2="${Y(10+a)}" class="pl"/><circle cx="${X(a)}" cy="${Y(2*a)}" r="6" style="fill:var(--card);stroke:var(--ink);stroke-width:2.5"/><circle cx="${X(x)}" cy="${Y(x+a)}" r="6" class="co"/>`,`Saat x = ${f1(x)}, f(x) = <b>${f1(x+a)}</b><small>Makin dekat x ke ${a}, makin dekat f(x) ke ${2*a}. Jadi limitnya = <b>${2*a}</b>.</small>`]},
+q:()=>{const a=R(1,9),b=R(1,9);return R(0,1)?{t:`Hitung limit (x² − ${a*a}) ÷ (x − ${a}) untuk x mendekati ${a}.`,a:2*a,h:`Faktorkan x² − ${a*a} = (x − ${a})(x + ${a}). Setelah dicoret tersisa x + ${a}, lalu isi x = ${a}.`}:{t:`Hitung limit (x² + ${b}x) untuk x mendekati ${a}.`,a:a*a+b*a,h:`Ini fungsi polinom, jadi cukup isi x = ${a}: ${a}² + ${b} × ${a}.`}}}
+];
+SMP.sort((a,b)=>a.k-b.k);
+const QZ=id=>`<div class="quiz" data-k="${id}"><h3>Coba sendiri</h3><p class="qt"></p><div class="row"><input type="number" inputmode="numeric" aria-label="Jawabanmu"><button class="go">Cek jawaban</button><button class="nx">Soal baru</button></div><p class="fb" role="status"></p></div>`;
+let HT='',lk=0;
+SMP.forEach(d=>{if(d.k!=lk){HT+=(lk?'</div>':'')+`<div class="pg" id="kelas${d.k}" hidden><h2 class="grp">🎒 ${d.k>9?'SMA':'SMP'} Kelas ${d.k}</h2>`;lk=d.k}
+HT+=`<section id="${d.id}" class="card" style="--c:var(--${d.c})"><h2>${d.e} ${d.t}</h2><div class="two"><div>${d.tx}${d.sl.map((s,i)=>`<label class="sld" for="${d.id+i}">${s[0]}: <b id="${d.id+i}v">${s[3]}</b></label><input id="${d.id+i}" type="range" min="${s[1]}" max="${s[2]}" value="${s[3]}">`).join('')}<div class="out"></div></div><svg class="vis" viewBox="${d.vb}" role="img" aria-label="${d.t}"></svg></div>${QZ(d.id)}</section>`;G[d.id]=d.q});
+$('#smp').innerHTML=HT+'</div>';
+SMP.forEach(d=>{const sc=$('#'+d.id),sv=$('svg',sc),o=$('.out',sc),g=()=>{const[s,t]=d.f(...d.sl.map((_,i)=>+$('#'+d.id+i).value));sv.innerHTML=s;o.innerHTML=t};d.sl.forEach((_,i)=>rg(d.id+i,g))});
+
+document.querySelectorAll('.quiz').forEach(q=>{const k=q.dataset.k,t=$('.qt',q),i=$('input',q),f=$('.fb',q);let c,d;
+const nw=()=>{c=G[k]();d=0;t.textContent=c.t;i.value='';f.textContent='';f.className='fb'};
+const ck=()=>{if(i.value==='')return;
+ if(+i.value===c.a){f.className='fb ok';
+  if(d)f.textContent='Benar! Bintang soal ini sudah kamu ambil. Coba soal baru.';
+  else{d=1;$('#sc').textContent=++stars;f.textContent='Benar! Kamu dapat satu bintang ⭐'}}
+ else{f.className='fb no';f.textContent='Belum tepat. Petunjuk: '+c.h}};
+$('.go',q).onclick=ck;i.onkeydown=e=>e.key==='Enter'&&ck();$('.nx',q).onclick=nw;nw()});
+const pgs=[...document.querySelectorAll('.pg')],nv=[...document.querySelectorAll('nav a')];
+const show=()=>{const h=location.hash.slice(1),id=pgs.some(p=>p.id===h)?h:'kelas7';pgs.forEach(p=>p.hidden=p.id!==id);nv.forEach(a=>a.setAttribute('aria-current',a.hash==='#'+id?'page':'false'))};
+addEventListener('hashchange',()=>{show();scrollTo(0,0)});show();
+</script>
+</body>
+</html>
